@@ -1,10 +1,10 @@
-import Navigation from './components/Navigation';
-
-
+import Profile from "./pages/Profile.jsx";
 
 function App() {
   return (
-     <Navigation /> 
+    <div className="App">
+     <Profile /> 
+    </div>
   );
 }
 
