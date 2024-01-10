@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Button from '@mui/material/Button';
 import {getUser, User} from "../api/user";
 
 
@@ -41,9 +40,8 @@ function Profile() {
           <div className="search-input">
             <input type="text" placeholder="search..." />
           </div>
-          <Button variant="text" color="secondary">Sign In</Button>
-          <Button variant="outlined" color="success">Sign out </Button>
-
+            <a href="/" className="button">Sign In</a>
+            <a href="/" className="button outlined">Sign Up</a>
         </div>
       </header>
       <div className="main">
@@ -62,8 +60,8 @@ function Profile() {
             {bio}
           </div>
           <div className="subscribers">
-            <a href="#">10 followers</a>
-            <a href="#">10 following</a>
+            <a href="#">{user?.followers} followers</a>
+            <a href="#">{} following</a>
           </div>
           <div className="links">
             <a href="#">not linked</a>

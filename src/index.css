@@ -24,7 +24,7 @@ code {
  }
 
 .nav {
-   background-color: #ccc;
+   background-color: #eee;
    padding: 8px 16px;
    display: flex;
    justify-content: space-between;
@@ -36,7 +36,7 @@ code {
 }
 .nav .nav-left a{
   padding: 8px;
-  color: #fff;
+  color: #333;
 }
 .nav .nav-right{
   display: flex;
@@ -44,7 +44,7 @@ code {
 }
 .nav .nav-right a{
   padding: 4px;
-  color: #fff;
+  color: #333;
 }
 .main {
   display: flex;
@@ -132,3 +132,11 @@ display: flex;
 .main .pinned-repositories .repositories .repository .repo-info div{
 padding-right: 8px ;
 }
+
+/* Botton */
+.button{
+  padding: 4px;
+}
+.button.outlined{
+  border: 1px solid #ccc;
+} 

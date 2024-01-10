@@ -1,5 +1,5 @@
 import { Octokit } from "octokit";
-const token="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";
+const token="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";
 export interface User{
     avatar_url: string;
     name: string | null;
@@ -12,7 +12,7 @@ export interface User{
 async function getUser(): Promise<User> {
  
   const octokit = new Octokit({
-    auth: token
+    auth: token,
   })
   
   const response = await octokit.request('GET /users/{username}', {
@@ -21,6 +21,6 @@ async function getUser(): Promise<User> {
       'X-GitHub-Api-Version': '2022-11-28'
     }
   })
-return response;
+return response.data;
 }
 export {getUser};
