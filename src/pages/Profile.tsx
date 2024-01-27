@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import {getUser, User} from "../api/user";
+
+import { useProfile } from '../hooks/profile';
+import { Map } from 'typescript';
+import GitHubCalendar from "react-github-calendar";
 
 
-function Profile() {
-  const [user, setUser] = useState<User>();
 
-  useEffect(() => {
-    getUser().then((data) =>{
-      setUser(data);
-    });
-  }, []);
+export function Profile() {
+
+  
+  interface repo{
+    map : "map"
+  }
+
+   const {user,repo}=useProfile()
+   
 
   const profile_picture = user?.avatar_url;
   const name = user?.name;
@@ -70,24 +74,34 @@ function Profile() {
         <div className="activity">
           <div className="pinned-repositories">
             <h3>Pinned Repositoriy</h3>
-            <div className="repositories">
-            <div className="repository">
-              <div className="title">
-                <a href="#">test repository</a>
-              </div>
-              <div className="description">nothing here</div>
-              <div className="repo-info">
-                <div>Javascript</div>
-                <div>1 star</div>
-                <div>1 fork</div>
-                
-              </div>
-            </div>
-          </div>
+            <div className="repositories">    
+            {
+             (repo)?.map((item,index)=>{
+               if (index<6) {
+                return (
+                  <div className="repository">
+                     <div className="sub-rep">
+                       <div className="title">
+                      {item.name}
+                       </div>
+                    <div className="description">{item.visibility}</div>
+                    </div>
+                      <div className="repo-info">
+                         <div>{item!.language}</div>
+                         <div> </div>
+                         {/* <div>{item.forks_count} fork</div> */}
+                       </div>
+            
+                    </div>
+               )}})}
+                   </div>
           </div>
         </div>
+      </div>
+      <div  className="flex justify-center border py-2 graph-before-activity-overview">
+      { <GitHubCalendar username={"serajimaryam"} /> }
       </div>
     </div>
   );
 }
-export default Profile;
+

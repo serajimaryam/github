@@ -1,13 +1,13 @@
 import { Octokit } from "octokit";
-const token="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";
+import { token } from "../constant";
 export interface User{
-    avatar_url: string;
-    name: string | null;
-    company: string | null;
-    blog: string | null;
-    bio: string | null;
-    followers: number;
-    following: number;
+    avatar_url: string ,
+    name: string | null,
+    company: string | null,
+    blog: string | null,
+    bio: string | null,
+    followers: number,
+    following: number
 }
 async function getUser(): Promise<User> {
  
@@ -21,6 +21,7 @@ async function getUser(): Promise<User> {
       'X-GitHub-Api-Version': '2022-11-28'
     }
   })
+  console.log("useeeeer",  response.data)
 return response.data;
 }
 export {getUser};
